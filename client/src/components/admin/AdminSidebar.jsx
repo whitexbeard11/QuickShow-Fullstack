@@ -6,8 +6,8 @@ import { assets } from '../../assets/assets'
 const AdminSidebar = () => {
 
     const user = {
-        firstName: 'Admin',
-        lastName: 'User',
+        firstName: 'Nitin',
+        lastName: 'Jangid',
         imageUrl: assets.profile,
     }
 

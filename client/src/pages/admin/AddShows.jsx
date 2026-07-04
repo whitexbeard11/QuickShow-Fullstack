@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { dummyShowsData } from '../../assets/assets';
 import Loading from '../../components/Loading';
 import Title from '../../components/admin/Title';
 import { CheckIcon, DeleteIcon, StarIcon } from 'lucide-react';
@@ -103,7 +102,7 @@ const AddShows = () => {
 
   return nowPlayingMovies.length > 0 ? (
     <>
-      <Title text1="Add" text2="Shows" />
+      <Title text1="Add" text2= "Shows" />
       <p className="mt-10 text-lg font-medium">Now Playing Movies</p>
       <div className="overflow-x-auto pb-4">
         <div className="group flex flex-wrap gap-4 mt-4 w-max">

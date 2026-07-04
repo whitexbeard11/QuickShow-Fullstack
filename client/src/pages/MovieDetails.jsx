@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { dummyDateTimeData, dummyShowsData } from '../assets/assets'
 import BlurCircle from '../components/BlurCircle'
 import { Heart, PlayCircleIcon, StarIcon } from 'lucide-react'
 import timeFormat from '../lib/timeFormat'
@@ -17,6 +16,7 @@ const MovieDetails = () => {
   const [show, setShow] = useState(null)
 
   const {shows, axios, getToken, user, fetchFavoriteMovies, favoriteMovies, image_base_url} = useAppContext()
+  const castWithPhotos = show?.movie?.casts?.filter(cast => cast.profile_path).slice(0, 12) || []
 
   const getShow = async ()=>{
     try {
@@ -56,7 +56,7 @@ const MovieDetails = () => {
 
         <div className='relative flex flex-col gap-3'>
           <BlurCircle top="-100px" left="-100px"/>
-          <p className='text-primary'>ENGLISH</p>
+          <p className='text-primary'>ENGLISH </p>
           <h1 className='text-4xl font-semibold max-w-96 text-balance'>{show.movie.title}</h1>
           <div className='flex items-center gap-2 text-gray-300'>
             <StarIcon className="w-5 h-5 text-primary fill-primary"/>
@@ -85,12 +85,13 @@ const MovieDetails = () => {
       <p className='text-lg font-medium mt-20'>Your Favorite Cast</p>
       <div className='overflow-x-auto no-scrollbar mt-8 pb-4'>
         <div className='flex items-center gap-4 w-max px-4'>
-          {show.movie.casts.slice(0,12).map((cast,index)=> (
+          {castWithPhotos.map((cast,index)=> (
             <div key={index} className='flex flex-col items-center text-center'>
               <img src={image_base_url + cast.profile_path} alt="" className='rounded-full h-20 md:h-20 aspect-square object-cover'/>
               <p className='font-medium text-xs mt-3'>{cast.name}</p>
             </div>
           ))}
+          {castWithPhotos.length === 0 && <p className='text-sm text-gray-400'>Cast information is not available for this movie.</p>}
         </div>
       </div>
 

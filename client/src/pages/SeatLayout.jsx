@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { assets, dummyDateTimeData, dummyShowsData } from '../assets/assets'
+import { useParams } from 'react-router-dom'
+import { assets } from '../assets/assets'
 import Loading from '../components/Loading'
 import { ArrowRightIcon, ClockIcon } from 'lucide-react'
 import isoTimeFormat from '../lib/isoTimeFormat'
@@ -17,8 +17,6 @@ const SeatLayout = () => {
   const [selectedTime, setSelectedTime] = useState(null)
   const [show, setShow] = useState(null)
   const [occupiedSeats, setOccupiedSeats] = useState([])
-
-  const navigate = useNavigate()
 
   const {axios, getToken, user} = useAppContext();
 
@@ -86,8 +84,7 @@ const SeatLayout = () => {
         const {data} = await axios.post('/api/booking/create', {showId: selectedTime.showId, selectedSeats}, {headers: { Authorization: `Bearer ${await getToken()}` }});
 
         if (data.success){
-          toast.success(data.message || 'Booking confirmed')
-          navigate('/my-bookings')
+          window.location.href = data.url
         }else{
           toast.error(data.message)
         }
@@ -144,7 +141,7 @@ const SeatLayout = () => {
           </div>
 
           <button onClick={bookTickets} className='flex items-center gap-1 mt-20 px-10 py-3 text-sm bg-primary hover:bg-primary-dull transition rounded-full font-medium cursor-pointer active:scale-95'>
-            Book Tickets
+            Proceed to Payment
             <ArrowRightIcon strokeWidth={3} className="w-4 h-4"/>
           </button>
 

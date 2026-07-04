@@ -8,7 +8,8 @@ const Footer = () => {
                 <div className="md:max-w-96">
                     <img className="w-36 h-auto" src={assets.logo} alt="logo" />
                     <p className="mt-6 text-sm">
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                        Discover, explore, and book your favorite movies with ease. From the latest blockbusters to timeless classics, our platform brings you real-time showtimes, detailed movie information, and a seamless booking experience—all in one place. Sit back, browse, and enjoy the magic of cinema.
+
                     </p>
                     <div className="flex items-center gap-2 mt-4">
                         <img src={assets.googlePlay} alt="google play" className="h-9 w-auto" />
@@ -28,14 +29,14 @@ const Footer = () => {
                     <div>
                         <h2 className="font-semibold mb-5">Get in touch</h2>
                         <div className="text-sm space-y-2">
-                            <p>+1-234-567-890</p>
-                            <p>contact@example.com</p>
+                            <p>+91 9876543210</p>
+                            <p>nitinjangid@example.com</p>
                         </div>
                     </div>
                 </div>
             </div>
             <p className="pt-4 text-center text-sm pb-5">
-                Copyright {new Date().getFullYear()} © GreatStack. All Right Reserved.
+                Copyright {new Date().getFullYear()} © Nitin Jangid. All Right Reserved.
             </p>
         </footer>
   )

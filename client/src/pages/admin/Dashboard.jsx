@@ -1,6 +1,5 @@
 import { ChartLineIcon, CircleDollarSignIcon, PlayCircleIcon, StarIcon, UsersIcon } from 'lucide-react';
 import React, { useEffect, useState } from 'react'
-import { dummyDashboardData } from '../../assets/assets';
 import Loading from '../../components/Loading';
 import Title from '../../components/admin/Title';
 import BlurCircle from '../../components/BlurCircle';
@@ -51,7 +50,7 @@ const Dashboard = () => {
 
   return !loading ? (
     <>
-      <Title text1="Admin" text2="Dashboard"/>
+      <Title text1="Nitin Jangid" text2="Dashboard"/>
 
       <div className="relative flex flex-wrap gap-4 mt-6">
                 <BlurCircle top="-100px" left="0" />
